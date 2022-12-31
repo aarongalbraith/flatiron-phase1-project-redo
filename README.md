@@ -2,11 +2,17 @@
 
 ## Overview
 
-Microsoft is interested in expanding into the business of producing movies and seeks our guidance as to what kinds of movies it should make. We have gathered from the available data that, in order to maximize the ROI of these projects, Microsoft should produce relatively short movies in the horror and mystery genres, and it should assign directors to these movies without particular concern for their past directing experience.
+<< DO LAST >>
 
 ## Business Understanding
 
-The first question to answer is what constitutes a successful movie. We used the simple metric of ROI, found by dividing a movie's total grosses by its budget.
+The first question to answer is what constitutes a successful movie. In the end, we used both profit and ROI.
+
+Profit and ROI tell different stories. If one type of project has a high average ROI, then it may be more reliable and thus preferable to a certain type of investor. But if this type of project is typically done on a lower budget, then it doesn't guarantee a very big profit and may not therefore be worth the studio's time.
+
+If a type of project has a high average profit, 
+
+
 
 We considered but dismissed an alternate metric of viewership share. It's possible that Microsoft would want to prioritize long-term brand awareness and viewer loyalty (perhaps even subscriptions to a streaming platform) at the potential expense of short-term profits. To explore this, we would need to make deeper comparisons involving how many people are viewing each movie, which would require better data than we have access to, and which might not ultimately be relevant, depending on Microsoft's specific goals.
 
