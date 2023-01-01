@@ -6,29 +6,39 @@
 
 ## Business Understanding
 
-The first question to answer is what constitutes a successful movie. In the end, we used both profit and ROI.
+The first question to answer is what constitutes a successful movie. In the end, we used both **profit** and **ROI**.
 
-Profit and ROI tell different stories. If one type of project has a high average ROI, then it may be more reliable and thus preferable to a certain type of investor. But if this type of project is typically done on a lower budget, then it doesn't guarantee a very big profit and may not therefore be worth the studio's time.
+Profit and ROI tell different stories. If one type of project has a high average ROI, then it may be more reliable and thus preferable to a certain type of investor. But if this type of high-ROI project is typically done on a small budget, then it doesn't guarantee a very big profit and may not therefore be worth the studio's time.
 
-If a type of project has a high average profit, 
+On the other hand, if a type of project has a high average profit, then it is more likely to pay off handsomely, assuming it does pay off.
 
+We considered but dismissed alternate metrics. One was viewership share. It's possible that Microsoft would want to prioritize long-term brand awareness and viewer loyalty (perhaps even subscriptions to a streaming platform) at the potential expense of short-term profits. To explore this, we would need to make deeper comparisons involving how many people are viewing each movie, which would require better data than we have access to, and which might not ultimately be relevant, depending on Microsoft's specific goals.
 
+The second question to answer is *what* we should attribute the success (defined above) of a movie *to*. Within the constraints of the data and with a focus on what elements Microsoft could control, we chose to isolate the variables of running time, genre, MPAA rating, and the profit and ROI history of both the director and lead actor(s).
 
-We considered but dismissed an alternate metric of viewership share. It's possible that Microsoft would want to prioritize long-term brand awareness and viewer loyalty (perhaps even subscriptions to a streaming platform) at the potential expense of short-term profits. To explore this, we would need to make deeper comparisons involving how many people are viewing each movie, which would require better data than we have access to, and which might not ultimately be relevant, depending on Microsoft's specific goals.
+## Data Understanding
 
-The second question to answer is what we should attribute the success (ROI) of a movie to. Within the constraints of the data and with a focus on what elements Microsoft could control, we chose to isolate the variables of running time, genre, and the experience of the assigned director.
+The available data comes from 5 families of resources. By far the richest of these resources is IMDb. IMDb has records for the most movies of any of the resources, and it has data on running time, genre, director and cast, all of which was ultimately relevant to our exploration.
 
-## Data Understanding and Analysis
+The next most useful resource was The Numbers, which provided necessary data on movie grosses and budgets, from which we calculated profit and ROI. No other resource had any budget information at all, so each aspect of our analysis was necessarily limited to the 5,782 records from The Numbers.
 
-The available data comes from 5 families of resources. By far the richest of these resources is IMDb. IMDb has records for the most movies of any of the resources, and it has data on running time, genre, and director assignment, all of which was ultimately relevant to our exploration.
+The data from the original Rotten Tomatoes files was unusable since it none of the records included any titles. We replaced these with other Rotten Tomatoes records sourced from Kaggle, which were very rich indeed and actually provided more usable records than IMDb, given that records needed to overlap with those from The Numbers in order to be usable. The Rotten Tomatoes records included data on running time, genre, MPAA rating, and directors.
 
-The next most useful resource was The Numbers, which provided necessary data on movie grosses and budgets, from which we calculated ROI.
+The other two resource families proved unusable because their data was redundant and less extensive than others. Box Office Mojo had incomplete data on box office grosses but no data on budgets. The Movie Data Base would have only added information on "popularity", which, upon further investigation, seems to have been defined in a very loose way that we cannot concretely relate to profit or ROI.
 
-The other 3 resource families proved unusable either because their data was compromised or because their data was redundant and less extensive than others. Rotten Tomatoes, for example, has data on reviews that none of the other resources has, but its database doesn't include titles for the movies. Because its records include some fields in common with other records (such as year of release, director identity, and running time) it might have been possible to backfill *some* of these records and thereby potentially involve the other data that Rotten Tomatoes had to offer, but this would have multiplied the effort required several-fold and not necessarily been more useful than the other results we obtained.
+## Data Analysis
 
-The result from analyzing running time was rather clear. We plotted running time (in categories of 60-65 minutes, 65-70 minutes, etc.) against ROI and found several spikes. Several of these, however, corresponded to running times that were relatively rare. For example, the data appears to show that 160-165 minute movies are rather profitable, but not many such movies exist to begin with. Accordingly, we dismissed this and other spikes in the ROI plot as potentially anomalous and certainly unreliable (as well as risky). The highest spike, however, corresponded to 80-85 minutes, which is among the groups of movie running times for which there is ample data.
+### Runtime
 
-![running time v. ROI](images/image01.jpg)
+We analyzed runtime by (1) removing outliers (more than 2 standard deviations, for both runtime and profit), (2) by cutting the data into 15 equally-sized percentile bins for runtime, and (3) plotting those bins against profit and ROI.
+
+![runtime v. profit and runtime v. ROI](images/im01.jpg)
+
+The results show that profit generally increases with runtime and ROI generally decreases with runtime.
+
+What this means for Microsoft depends on their goals and level of risk aversion. If they want to gun for big profits, the results suggest they should make longer movies. If they want reliable returns, they should make shorter movies (perhaps more of them).
+
+### Genre
 
 In order to analyze the effect of genre, it was necessary and took some effort to isolate single genres, as IMDb listed multiple genres in the majority of its records. After teasing the genres apart, it became quite clear that some were more profitable than others, namely the horror and mystery genres.
 
