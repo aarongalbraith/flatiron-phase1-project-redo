@@ -1,3 +1,4 @@
 # ignore data folder
 data/
-
+# only make edits locally
+# hit command + shift + period to view this in finder
