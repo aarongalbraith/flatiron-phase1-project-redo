@@ -6,7 +6,7 @@
 
 ## Business Understanding
 
-The first question to answer is what constitutes a successful movie. In the end, we used both **profit** and **ROI**.
+The first question to answer is what constitutes a successful movie. In the end, we used both (net) **profit** and **ROI**.
 
 Profit and ROI tell different stories. If one type of project has a high average ROI, then it may be more reliable and thus preferable to a certain type of investor. But if this type of high-ROI project is typically done on a small budget, then it doesn't guarantee a very big profit and may not therefore be worth the studio's time.
 
@@ -32,24 +32,40 @@ The other two resource families proved unusable because their data was redundant
 
 ### Runtime
 
-We analyzed runtime by (1) removing outliers (more than 2 standard deviations, for both runtime and profit), (2) cutting the data into equally-sized percentile bins for runtime, and (3) plotting those bins against profit and ROI.
+We analyzed runtime by (1) removing outliers (anything more than 2 standard deviations, for both runtime and profit), (2) cutting the data into equally-sized percentile bins for runtime, and (3) plotting those bins against profit and ROI.
 
 ![runtime v. profit and runtime v. ROI](images/im01.png)
 
-The results show that profit generally increases with runtime and ROI generally decreases with runtime.
+The results show that profit generally increases with runtime, and ROI generally decreases with runtime.
 
-What this means for Microsoft depends on their goals and level of risk aversion. If they want to gun for big profits, the results suggest they should make longer movies. If they want reliable returns, they should make shorter movies (perhaps more of them).
+What this means for Microsoft depends on their goals and how risk averse they are. If they want to go for big profits, the results suggest they should make longer movies. If they prefer reliable returns, they should make shorter movies (perhaps more of them).
 
 ### Genre
 
-In order to analyze the effect of genre, it was necessary and took some effort to isolate single genres, as IMDb and Rotten Tomatoes listed multiple genres in the majority of their records. After teasing the genres apart, we discovered that action movies achieved higher profits while dramas achieved higher ROI.
+In order to analyze the effect of genre, it was necessary to isolate single genres, as IMDb and Rotten Tomatoes both listed multiple genres for the majority of their records. After teasing the genres apart, we discovered that action movies achieved higher profits while dramas achieved higher ROI.
 
-![genre v. ROI](images/image02.jpg)
+![genre v. profit](images/image02.png)
+![genre v. ROI](images/image03.png)
 
-The matter of quantifying a director's experience required more feature creation than the other criteria did. To do this, we looked at movies from 2015-2018 (inclusive). Then, for the director of each movie, we calculated two quantities: (1) the **sum** of the budgets of the movies he or she had directed in the previous 5 years, and (2) the **average** ROI of the movies he or she had directed in the previous 5 years. Further, we performed this analysis three times, considering (1) all directors and all movies, (2) all directors and only movies with a budget greater than $1 million, and (3) only movies and directors of movies with a budget greater than $1 million. In all cases, the correlation showed that a director's experience has little to no effect on a movie's ROI.
+### MPAA Rating
 
-![director budget experience v. ROI](images/image03.jpg)
-![director ROI experience v. ROI](images/image04.jpg)
+This analysis worked much like the genre analysis did, in that we found the average net profit and ROI associated with each MPAA rating. In this case, however, our data on MPAA rating came only from Rotten Tomatoes.
+
+![rating v. profit](images/image04.png)
+![rating v. ROI](images/image05.png)
+
+## Profit History
+
+This analysis was the most complicated to carry out and to explain. We can use the profit history for Jurassic Park to illustrate:
+
+Jurassic Park was released in 1993 and directed by Steven Spielberg. To calculate the "past profit" for Jurassic Park, we would look at all the movies its director (Spielberg) directed *before* its year of release, 1993. (This list would include, for example, Jaws (1975) but not Minority Report (2002)). The average profit (adjusted for inflation) of these movies is the "past profit" of Jurassic Park.
+
+We then performed this calculation for ROI instead of net profit. And then we performed the calculations for both net profit and ROI for the "lead cast" instead of the director. In this lead cast analysis, we looked at either or both of the top two "principals" of a movie. The principals of a movie are not always both actors — sometimes the director or a producer is listed as one of the top principals. We controlled for this by limiting the "lead cast" analysis to just actors who appeared in either of the top two "principals" spots.
+
+![past profit v. profit (directors)](images/image06.png)
+![past ROI v. ROI (directors)](images/image07.png)
+![past profit v. profit (lead cast)](images/image08.png)
+![past ROI v. ROI (lead cast)](images/image09.png)
 
 In the language of statistical testing, this result would be known as "accepting the null hypothesis", where the "null hypothesis" is that there is **no** correlation between two phenomena. Such results are often overlooked, but they can often be just as illuminating as positive results, especially when they tend to contradict conventional wisdom, as we believe it does in this case.
 
