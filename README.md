@@ -34,7 +34,7 @@ The other two resource families proved unusable because their data was redundant
 
 We analyzed runtime by (1) removing outliers (more than 2 standard deviations, for both runtime and profit), (2) cutting the data into equally-sized percentile bins for runtime, and (3) plotting those bins against profit and ROI.
 
-![runtime v. profit and runtime v. ROI](images/im01.jpg)
+![runtime v. profit and runtime v. ROI](images/im01.png)
 
 The results show that profit generally increases with runtime and ROI generally decreases with runtime.
 
