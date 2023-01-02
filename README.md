@@ -18,9 +18,11 @@ The second question to answer is *what* we should attribute the success (defined
 
 ## Data Understanding
 
-The available data comes from 5 families of resources. By far the richest of these resources is IMDb. IMDb has records for the most movies of any of the resources, and it has data on running time, genre, director and cast, all of which was ultimately relevant to our exploration.
+The available data comes from 5 families of resources.
 
-The next most useful resource was The Numbers, which provided necessary data on movie grosses and budgets, from which we calculated profit and ROI. No other resource had any budget information at all, so each aspect of our analysis was necessarily limited to the 5,782 records from The Numbers.
+Only one resource, The Numbers, included usable data on movie budgets. Because there was no way to measure (net) profit or ROI without budget data, The Numbers data was involved in every analysis we made, so each aspect of our analysis was necessarily limited to the 5,782 records from The Numbers.
+
+IMDb and Rotten Tomatoes provided the balance of the data on runtime, genres, MPAA rating, and cast and crew listings. Although IMDb has a far greater number of records, the records from Rotten Tomatoes overlapped better with the records from The Numbers in most respects.
 
 The data from the original Rotten Tomatoes files was unusable since it none of the records included any titles. We replaced these with other Rotten Tomatoes records sourced from Kaggle, which were very rich indeed and actually provided more usable records than IMDb, given that records needed to overlap with those from The Numbers in order to be usable. The Rotten Tomatoes records included data on running time, genre, MPAA rating, and directors.
 
@@ -30,7 +32,7 @@ The other two resource families proved unusable because their data was redundant
 
 ### Runtime
 
-We analyzed runtime by (1) removing outliers (more than 2 standard deviations, for both runtime and profit), (2) by cutting the data into 15 equally-sized percentile bins for runtime, and (3) plotting those bins against profit and ROI.
+We analyzed runtime by (1) removing outliers (more than 2 standard deviations, for both runtime and profit), (2) cutting the data into equally-sized percentile bins for runtime, and (3) plotting those bins against profit and ROI.
 
 ![runtime v. profit and runtime v. ROI](images/im01.jpg)
 
@@ -40,7 +42,7 @@ What this means for Microsoft depends on their goals and level of risk aversion.
 
 ### Genre
 
-In order to analyze the effect of genre, it was necessary and took some effort to isolate single genres, as IMDb listed multiple genres in the majority of its records. After teasing the genres apart, it became quite clear that some were more profitable than others, namely the horror and mystery genres.
+In order to analyze the effect of genre, it was necessary and took some effort to isolate single genres, as IMDb and Rotten Tomatoes listed multiple genres in the majority of their records. After teasing the genres apart, we discovered that action movies achieved higher profits while dramas achieved higher ROI.
 
 ![genre v. ROI](images/image02.jpg)
 
