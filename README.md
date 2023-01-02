@@ -44,15 +44,15 @@ What this means for Microsoft depends on their goals and how risk averse they ar
 
 In order to analyze the effect of genre, it was necessary to isolate single genres, as IMDb and Rotten Tomatoes both listed multiple genres for the majority of their records. After teasing the genres apart, we discovered that action movies achieved higher profits while dramas achieved higher ROI.
 
-![genre v. profit](images/image02.png)
-![genre v. ROI](images/image03.png)
+![genre v. profit](images/im02.png)
+![genre v. ROI](images/im03.png)
 
 ### MPAA Rating
 
 This analysis worked much like the genre analysis did, in that we found the average net profit and ROI associated with each MPAA rating. In this case, however, our data on MPAA rating came only from Rotten Tomatoes.
 
-![rating v. profit](images/image04.png)
-![rating v. ROI](images/image05.png)
+![rating v. profit](images/im04.png)
+![rating v. ROI](images/im05.png)
 
 ## Profit History
 
@@ -62,10 +62,10 @@ Jurassic Park was released in 1993 and directed by Steven Spielberg. To calculat
 
 We then performed this calculation for ROI instead of net profit. And then we performed the calculations for both net profit and ROI for the "lead cast" instead of the director. In this lead cast analysis, we looked at either or both of the top two "principals" of a movie. The principals of a movie are not always both actors — sometimes the director or a producer is listed as one of the top principals. We controlled for this by limiting the "lead cast" analysis to just actors who appeared in either of the top two "principals" spots.
 
-![past profit v. profit (directors)](images/image06.png)
-![past ROI v. ROI (directors)](images/image07.png)
-![past profit v. profit (lead cast)](images/image08.png)
-![past ROI v. ROI (lead cast)](images/image09.png)
+![past profit v. profit (directors)](images/im06.png)
+![past ROI v. ROI (directors)](images/im07.png)
+![past profit v. profit (lead cast)](images/im08.png)
+![past ROI v. ROI (lead cast)](images/im09.png)
 
 In the language of statistical testing, this result would be known as "accepting the null hypothesis", where the "null hypothesis" is that there is **no** correlation between two phenomena. Such results are often overlooked, but they can often be just as illuminating as positive results, especially when they tend to contradict conventional wisdom, as we believe it does in this case.
 
