@@ -1,4 +1,5 @@
 # ignore data folder
 data/
+.ipynb_checkpoints
 # only make edits locally
 # hit command + shift + period to view this in finder
